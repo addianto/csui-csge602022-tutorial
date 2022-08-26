@@ -1,0 +1,35 @@
+---
+# Based on the example from: https://github.com/superfly/flyctl-actions
+name: Deploy to Fly
+
+on:
+  push:
+    # TODO: Remove `-ignore` once the repository is ready with the
+    # prerequisites for deploying to Fly
+    branches-ignore: [chore/fly]
+
+jobs:
+  qa:
+    name: Perform quality assurance
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v2.1.0
+        with:
+          dockerfile: Dockerfile
+
+  deploy:
+    name: Deploy static site
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@67ddda2a87628f1aff28a54b8a708879ec62c80f
+        with:
+          version: 0.0.383
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
