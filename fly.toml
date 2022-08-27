@@ -8,13 +8,14 @@ app = "csui-csge602022-tutorial"
     DOCKER_ARG = "true"
 
 [[services]]
-  internal_port = "8080"
+  internal_port = 8080
   protocol = "tcp"
 
   [[services.ports]]
-    handlers = ["tls, http"]
-    port = "443"
+    handlers = ["http"]
+    port = 80
+    force_https = true
 
   [[services.ports]]
-    handlers = ["http"]
-    port = "80"
+    handlers = ["tls"]
+    port = 443
