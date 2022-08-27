@@ -26,11 +26,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Install flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: |
-          docker --version
-          flyctl doctor
       - name: Deploy to Fly
         run: |
+          flyctl doctor
           flyctl auth docker
           flyctl deploy --local-only --push --verbose \
             --build-arg NODE_ENV_ARG=production \
