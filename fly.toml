@@ -13,9 +13,9 @@ app = "csui-csge602022-tutorial"
 
   [[services.ports]]
     handlers = ["http"]
-    port = 80
+    port = "80"
     force_https = true
 
   [[services.ports]]
-    handlers = ["tls"]
-    port = 443
+    handlers = ["tls", "http"]
+    port = "443"

@@ -16,6 +16,7 @@ RUN NODE_ENV=${NODE_ENV_ARG} DOCKER=${DOCKER_ARG} yarn build
 # Serve the static site
 FROM docker.io/nginxinc/nginx-unprivileged:1.23-alpine
 COPY --from=build /src/build /usr/share/nginx/html
+EXPOSE 8080
 
 # Set the metadata of the container image
 # Reference: https://github.com/opencontainers/image-spec/blob/main/annotations.md
