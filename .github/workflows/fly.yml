@@ -29,6 +29,7 @@ jobs:
       - name: Deploy to Fly
         run: |
           flyctl doctor
+          flyctl agent restart
           flyctl auth docker
           flyctl deploy --local-only --push --verbose \
             --build-arg NODE_ENV_ARG=production \
