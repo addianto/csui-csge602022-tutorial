@@ -28,6 +28,9 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy to Fly
         run: |
-          flyctl deploy --local-only --verbose
+          flyctl auth docker
+          flyctl deploy --local-only --verbose \
+            --build-arg NODE_ENV_ARG=production \
+            --build-arg DOCKER_ARG=true
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
