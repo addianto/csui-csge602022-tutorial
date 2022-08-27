@@ -3,10 +3,6 @@ app = "csui-csge602022-tutorial"
 [build]
   dockerfile = "Dockerfile"
 
-  [[build.args]]
-    NODE_ENV_ARG = "production"
-    DOCKER_ARG = "true"
-
 [[services]]
   internal_port = 8080
   protocol = "tcp"

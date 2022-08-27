@@ -30,6 +30,8 @@ jobs:
         run: |
           flyctl agent start
           flyctl auth docker
-          flyctl deploy --remote-only
+          flyctl deploy --remote-only \
+            --build-arg NODE_ENV_ARG=production \
+            --build-arg DOCKER_ARG=true
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
