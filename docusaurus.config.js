@@ -4,12 +4,19 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const createBaseUrl = () => {
+  const isProduction = process.env.NODE_ENV?.toLowerCase() === 'production';
+  const isDocker = process.env.DOCKER?.toLowerCase() === 'true';
+
+  return isProduction && !isDocker ? '/ganjil-2023/' : '/';
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Pemrograman Berbasis Platform',
   tagline: 'Ganjil 2022/2023',
-  url: 'https://pbp-fasilkom-ui.github.io',
-  baseUrl: process.env.NODE_ENV?.toLowerCase() == "production" ? '/ganjil-2023/' : '/',
+  url: 'https://pbp-falkom-ui.github.io',
+  baseUrl: createBaseUrl(),
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
