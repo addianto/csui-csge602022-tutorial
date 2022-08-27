@@ -28,10 +28,10 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy to Fly
         run: |
-          flyctl doctor
-          flyctl agent restart
+          flyctl agent start
           flyctl auth docker
-          flyctl deploy --local-only --push --verbose \
+          flyctl doctor
+          flyctl deploy --remote-only --verbose \
             --build-arg NODE_ENV_ARG=production \
             --build-arg DOCKER_ARG=true
         env:
