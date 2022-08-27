@@ -132,6 +132,10 @@ dist
 
 # Unrelated files
 .github/
+.editorconfig
+.gitignore
+Dockerfile
+README.md
 
 # Copied from .gitignore (2022-08-26)
 # Dependencies
