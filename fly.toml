@@ -1,3 +1,6 @@
+# Reminder: Create the app and initialise fly.toml via flyctl launch.
+# Unlike Heroku, an app on Fly.io needs to be created first before any
+# codebase can be built and deployed as that particular app.
 app = "csui-csge602022-tutorial"
 
 [build]

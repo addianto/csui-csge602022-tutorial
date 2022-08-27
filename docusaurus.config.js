@@ -15,7 +15,7 @@ const createBaseUrl = () => {
 const config = {
   title: 'Pemrograman Berbasis Platform',
   tagline: 'Ganjil 2022/2023',
-  url: 'https://pbp-falkom-ui.github.io',
+  url: 'https://pbp-fasilkom-ui.github.io',
   baseUrl: createBaseUrl(),
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
