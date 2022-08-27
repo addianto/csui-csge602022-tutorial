@@ -31,7 +31,6 @@ jobs:
           flyctl agent start
           flyctl auth docker
           flyctl doctor
-          flyctl launch --copy-config --no-deploy
           flyctl deploy --remote-only --verbose \
             --build-arg NODE_ENV_ARG=production \
             --build-arg DOCKER_ARG=true
