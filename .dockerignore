@@ -130,6 +130,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Unrelated files
+.github/
+
 # Copied from .gitignore (2022-08-26)
 # Dependencies
 /node_modules
