@@ -1,0 +1,17 @@
+app = "csui-csge602022-tutorial"
+
+[build]
+  dockerfile = "Dockerfile"
+
+  [[build.args]]
+    NODE_ENV_ARG = "production"
+    DOCKER_ARG = "true"
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+    force_https = true
