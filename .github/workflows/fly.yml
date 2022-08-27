@@ -4,9 +4,7 @@ name: Deploy to Fly
 
 on:
   push:
-    # TODO: Remove `-ignore` once the repository is ready with the
-    # prerequisites for deploying to Fly
-    branches-ignore: [chore/fly]
+    branches: [chore/fly]
 
 jobs:
   qa:
