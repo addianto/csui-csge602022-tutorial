@@ -27,9 +27,10 @@ jobs:
       - name: Install flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy to Fly
+        # `agent start` and `auth docker` might not be needed after all
+        # The problem was about missing app that must be created manually
+        # via flyctl in PC instead of CI
         run: |
-          flyctl agent start
-          flyctl auth docker
           flyctl deploy --remote-only \
             --build-arg NODE_ENV_ARG=production \
             --build-arg DOCKER_ARG=true
