@@ -4,7 +4,7 @@ name: Deploy to Fly
 
 on:
   push:
-    branches: [chore/fly]
+    branches: [deploy/fly]
 
 jobs:
   qa:
